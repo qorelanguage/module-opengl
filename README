@@ -5,7 +5,7 @@ Requires qore 0.7.0 and opengl headers and libraries to build.
 
 Documentation in docs/opengl-module-doc.html (using TiddlyWiki)
 
-test/example script directory: test/
+Note that there is no test script for this module - see the glut module or the qt-opengl module for qore code that uses the opengl module
 
 BUILD AND INSTALL
 -----------------
