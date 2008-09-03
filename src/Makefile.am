@@ -11,6 +11,7 @@ opengl_la_LDFLAGS = -module -avoid-version ${OPENGL_LIBS}
 
 INCLUDES = -I$(top_srcdir)/include $(OPENGL_INCLUDES)
 
+AM_CPPFLAGS = $(QORE_CPPFLAGS)
 AM_CXXFLAGS = ${PTHREAD_CFLAGS}
 
 if COND_PROFILE
