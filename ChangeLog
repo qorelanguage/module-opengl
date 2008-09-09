@@ -1,0 +1,37 @@
+2008-09-09 07:11  david_nichols
+
+	* qore-opengl-module.spec: updated license tag in spec file for
+	  LGPL
+
+2008-09-03 12:11  david_nichols
+
+	* COPYING: updated license for modules to LGPL (*not* GPL)
+
+2008-09-03 08:49  david_nichols
+
+	* configure.ac, m4, m4/acx_pthread.m4, reconf.sh, src/Makefile.am:
+	  added pthread detection to configure, flags to build
+
+2008-09-02 14:52  david_nichols
+
+	* Makefile.am, configure.ac, qore-opengl-module.spec: updated build
+	  and spec file for opengl module
+
+2008-09-02 14:41  david_nichols
+
+	* README: changed module directory to
+	  $libdir/qore-module-api-$(module_api_version), updated build and
+	  some docs
+
+2008-09-01 13:48  david_nichols
+
+	* Makefile.am, README, test: removed test scripts because they
+	  belong to the glut module
+
+2008-09-01 13:15  david_nichols
+
+	* ., AUTHORS, COPYING, ChangeLog, INSTALL, Makefile.am, NEWS,
+	  README, configure.ac, docs, ltmain.sh, reconf.sh, src, test:
+	  moved everything to trunk directory where it should have been in
+	  the first place
+
