@@ -1,5 +1,9 @@
 2008-09-09 07:11  david_nichols
 
+	* ChangeLog: updated ChangeLog
+
+2008-09-09 07:11  david_nichols
+
 	* qore-opengl-module.spec: updated license tag in spec file for
 	  LGPL
 
