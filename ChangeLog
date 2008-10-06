@@ -1,3 +1,17 @@
+2008-09-09 09:11  david_nichols
+
+	* docs/opengl-module-doc.html: updated docs
+
+2008-09-09 08:22  david_nichols
+
+	* docs/opengl-module-doc.html: updated docs
+
+2008-09-09 08:02  david_nichols
+
+	* ChangeLog, Makefile.am, docs/opengl-module-doc.html,
+	  qore-opengl-module.spec: added project documentation and updated
+	  changelog
+
 2008-09-09 07:11  david_nichols
 
 	* ChangeLog: updated ChangeLog
