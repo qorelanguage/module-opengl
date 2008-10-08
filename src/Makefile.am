@@ -23,5 +23,5 @@ endif
 endif
 
 install-exec-hook:
-	mv $(libdir)/opengl.$(MODULE_SUFFIX) $(libdir)/opengl.qmod
-	rm -f $(libdir)/opengl.la $(libdir)/opengl.a
+	mv $(DESTDIR)$(libdir)/opengl.$(MODULE_SUFFIX) $(DESTDIR)$(libdir)/opengl.qmod
+	rm -f $(DESTDIR)$(libdir)/opengl.la $(libdir)/opengl.a
