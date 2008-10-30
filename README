@@ -1,7 +1,7 @@
 opengl module for Qore
-version 0.0.1 by David Nichols
+version 0.0.2 by David Nichols
 
-Requires qore 0.7.0 and opengl headers and libraries to build.
+Requires qore 0.7.1 and opengl headers and libraries to build.
 Will build with OpenGL or Mesa.
 
 Documentation in docs/opengl-module-doc.html (using TiddlyWiki)
