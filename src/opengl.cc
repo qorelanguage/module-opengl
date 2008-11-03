@@ -20,8 +20,6 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <qore/Qore.h>
-
 #include "qore-opengl.h"
 
 #include <alloca.h>
@@ -30,9 +28,8 @@ static QoreStringNode *opengl_module_init();
 static void opengl_module_ns_init(QoreNamespace *rns, QoreNamespace *qns);
 static void opengl_module_delete();
 
-#ifndef QORE_MONOLITHIC
 DLLEXPORT char qore_module_name[] = "opengl";
-DLLEXPORT char qore_module_version[] = "0.1";
+DLLEXPORT char qore_module_version[] = PACKAGE_VERSION;
 DLLEXPORT char qore_module_description[] = "OpenGL module";
 DLLEXPORT char qore_module_author[] = "David Nichols";
 DLLEXPORT char qore_module_url[] = "http://qore.sourceforge.net";
@@ -42,7 +39,6 @@ DLLEXPORT qore_module_init_t qore_module_init = opengl_module_init;
 DLLEXPORT qore_module_ns_init_t qore_module_ns_init = opengl_module_ns_init;
 DLLEXPORT qore_module_delete_t qore_module_delete = opengl_module_delete;
 DLLEXPORT qore_license_t qore_module_license = QL_LGPL;
-#endif
 
 QoreNamespace opengl_ns("OpenGL");
 

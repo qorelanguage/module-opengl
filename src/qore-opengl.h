@@ -24,6 +24,10 @@
 
 #define _QORE_OPENGL_H
 
+#include "../config.h"
+
+#include <qore/Qore.h>
+
 // to get ext prototypes with mesa
 #define GL_GLEXT_PROTOTYPES 1
 
