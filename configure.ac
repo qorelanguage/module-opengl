@@ -1,7 +1,7 @@
 # Process this file with autoconf to produce a configure script.
 
 # AC_PREREQ(2.59)
-AC_INIT([qore-opengl-module], [0.0.2],
+AC_INIT([qore-opengl-module], [0.0.3],
         [David Nichols <nicholsman@gmail.com>],
         [qore-opengl-module])
 AM_INIT_AUTOMAKE
@@ -14,7 +14,8 @@ AC_DISABLE_STATIC
 AC_LIBTOOL_DLOPEN
 AM_PROG_LIBTOOL
 AC_PROG_INSTALL
-AC_PROG_RANLIB
+
+AC_CONFIG_MACRO_DIR([m4])
 
 # set system variables
 OS=`uname -s`
@@ -29,6 +30,11 @@ else
    if test $ARCH = i686 -o $ARCH = i586 -o $ARCH = athlon ; then
       ARCH=i386
    fi
+fi
+
+# set find prefix
+if test -n "$prefix" -a "$prefix" != "NONE"; then
+   find_prefix="$prefix"
 fi
 
 #AC_CANONICAL_HOST
@@ -359,16 +365,14 @@ if test "${with_opengl}" = yes; then
   fi
 fi
 
-set_qore_cppflags()
-{
+set_qore_cppflags() {
     QORE_INC_DIR=$1
     if test "$1" != "/usr/include"; then
         QORE_CPPFLAGS=-I$1
     fi
 }
 
-find_qore()
-{
+find_qore() {
     lib=$1/lib${LIBSUFFIX}
 
     # if we only want the static qore libraries
@@ -422,7 +426,7 @@ AC_ARG_WITH([qore-dir],
   [with_qore_dir="$QORE_DIR"])
 
 AC_MSG_CHECKING([for qore libraries and header files])
-for dir in "${with_qore_dir}" /usr / /usr/local /opt/gnu /opt/qore /usr/local/qore /opt/local /sw /usr/sfw /opt/sfw; do
+for dir in "${with_qore_dir}" "${find_prefix}" /usr / /usr/local /opt/gnu /opt/qore /usr/local/qore /opt/local /sw /usr/sfw /opt/sfw; do
     find_qore $dir
     if test -n "$QORE_LDFLAGS"; then
         break
