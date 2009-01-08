@@ -93,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%{module_dir}/opengl-api-%{module_api}.qmod
+%{module_dir}
 %doc COPYING README RELEASE-NOTES ChangeLog AUTHORS docs/opengl-module-doc.html
 
 %changelog
