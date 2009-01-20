@@ -5,6 +5,8 @@ Version 0.0.3
 updated configure to check the directory specified with --prefix first when
 looking for dependent libraries
 
+fixed configure to look for glu.h as well as gl.h; made not finding OpenGL a
+fatal error
 
 -------------
 Version 0.0.2

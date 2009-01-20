@@ -211,16 +211,17 @@ AC_ARG_WITH([opengl-includes],
                     [OpenGL include file parent directory])],
     [if test ! -d "${with_opengl_includes}"; then AC_MSG_ERROR(directory ${with_opengl_includes} does not exist for --with-opengl-includes); unset with_opengl_includes; fi])
 
-check_opengl_include()
-{
-    if test -f "$1/gl.h"; then
+check_opengl_include() {
+    if test -f "$1/gl.h" -a -f "$1/glu.h"; then
        found_opengl_includes=$1
-    elif test -f "$1/GL/gl.h"; then
+    elif test -f "$1/GL/gl.h" -a -f "$1/GL/glu.h"; then
        found_opengl_includes=$1/GL
-    elif test -f "$1/OpenGL/gl.h"; then
+    elif test -f "$1/OpenGL/gl.h" -a -f "$1/OpenGL/glu.h"; then
        found_opengl_includes=$1/OpenGL
-    elif test -f "$1/mesa/gl.h"; then
+    elif test -f "$1/mesa/gl.h" -a -f "$1/mesa/glu.h"; then
        found_opengl_includes=$1/mesa
+    elif test -f "$1/Mesa/gl.h" -a -f "$1/Mesa/glu.h"; then
+       found_opengl_includes=$1/Mesa
     elif test "$2" = "err"; then
        AC_MSG_ERROR([$1 is not a valid OpenGL parent include directory])
     fi
@@ -321,7 +322,7 @@ if test "${with_opengl}" != "no"; then
       	 fi
       	 with_opengl=yes
       else
-	 AC_MSG_RESULT([not found])
+	 AC_MSG_ERROR([not found])
          unset with_opengl
       fi
    fi
