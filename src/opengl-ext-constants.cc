@@ -2118,9 +2118,11 @@ void addOpenGLExtConstants()
    opengl_ns.addConstant("GL_OFFSET_TEXTURE_MATRIX_NV",                new QoreBigIntNode(0x86E1));
    opengl_ns.addConstant("GL_OFFSET_TEXTURE_SCALE_NV",                 new QoreBigIntNode(0x86E2));
    opengl_ns.addConstant("GL_OFFSET_TEXTURE_BIAS_NV",                  new QoreBigIntNode(0x86E3));
-   opengl_ns.addConstant("GL_OFFSET_TEXTURE_2D_MATRIX_NV",             new QoreBigIntNode(GL_OFFSET_TEXTURE_MATRIX_NV));
-   opengl_ns.addConstant("GL_OFFSET_TEXTURE_2D_SCALE_NV",              new QoreBigIntNode(GL_OFFSET_TEXTURE_SCALE_NV));
-   opengl_ns.addConstant("GL_OFFSET_TEXTURE_2D_BIAS_NV",               new QoreBigIntNode(GL_OFFSET_TEXTURE_BIAS_NV));
+
+   opengl_ns.addConstant("GL_OFFSET_TEXTURE_2D_MATRIX_NV",             new QoreBigIntNode(0x86e1));
+   opengl_ns.addConstant("GL_OFFSET_TEXTURE_2D_SCALE_NV",              new QoreBigIntNode(0x86e2));
+   opengl_ns.addConstant("GL_OFFSET_TEXTURE_2D_BIAS_NV",               new QoreBigIntNode(0x86e3));
+
    opengl_ns.addConstant("GL_PREVIOUS_TEXTURE_INPUT_NV",               new QoreBigIntNode(0x86E4));
    opengl_ns.addConstant("GL_CONST_EYE_NV",                            new QoreBigIntNode(0x86E5));
    opengl_ns.addConstant("GL_SHADER_CONSISTENT_NV",                    new QoreBigIntNode(0x86DD));

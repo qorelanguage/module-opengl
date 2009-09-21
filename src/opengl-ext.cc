@@ -4998,6 +4998,7 @@ static AbstractQoreNode *f_glPNTrianglesfATIX(const QoreListNode *params, Except
 }
 #endif
 
+#ifdef HAVE_GLCOMBINER
 /*
 //void glCombinerParameterfvNV (GLenum, const GLfloat *);
 static AbstractQoreNode *f_glCombinerParameterfvNV(const QoreListNode *params, ExceptionSink *xsink)
@@ -5238,6 +5239,7 @@ static AbstractQoreNode *f_glGetCombinerStageParameterfvNV(const QoreListNode *p
    return 0;
 }
 */
+#endif // HAVE_GLCOMBINER
 
 //void glPointParameteriNV (GLenum pname, GLint param);
 static AbstractQoreNode *f_glPointParameteriNV(const QoreListNode *params, ExceptionSink *xsink)
@@ -5650,6 +5652,7 @@ void initOpenGLExt()
    builtinFunctions.add("glPNTrianglesfATIX",           f_glPNTrianglesfATIX, QDOM_GUI);
 #endif
    //builtinFunctions.add("glCombinerParameterfvNV",      f_glCombinerParameterfvNV, QDOM_GUI);
+#ifdef HAVE_GLCOMBINER
    builtinFunctions.add("glCombinerParameterfNV",       f_glCombinerParameterfNV, QDOM_GUI);
    //builtinFunctions.add("glCombinerParameterivNV",      f_glCombinerParameterivNV, QDOM_GUI);
    builtinFunctions.add("glCombinerParameteriNV",       f_glCombinerParameteriNV, QDOM_GUI);
@@ -5664,6 +5667,7 @@ void initOpenGLExt()
    //builtinFunctions.add("glGetFinalCombinerInputParameterivNV", f_glGetFinalCombinerInputParameterivNV, QDOM_GUI);
    //builtinFunctions.add("glCombinerStageParameterfvNV", f_glCombinerStageParameterfvNV, QDOM_GUI);
    //builtinFunctions.add("glGetCombinerStageParameterfvNV", f_glGetCombinerStageParameterfvNV, QDOM_GUI);
+#endif
    builtinFunctions.add("glPointParameteriNV",          f_glPointParameteriNV, QDOM_GUI);
    //builtinFunctions.add("glPointParameterivNV",         f_glPointParameterivNV, QDOM_GUI);
 }
