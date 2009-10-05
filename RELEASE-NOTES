@@ -8,6 +8,7 @@ looking for dependent libraries
 fixed configure to look for glu.h as well as gl.h; made not finding OpenGL a
 fatal error
 
+
 -------------
 Version 0.0.2
 -------------
