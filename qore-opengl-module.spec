@@ -8,6 +8,10 @@
 %else
 %if 0%{?suse_version}
 
+%if 0%{?suse_version} == 1130
+%define dist .opensuse11_3
+%endif
+
 %if 0%{?suse_version} == 1120
 %define dist .opensuse11_2
 %endif
@@ -64,7 +68,7 @@ Source: http://prdownloads.sourceforge.net/qore/%{name}-%{version}.tar.gz
 #Source0: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 Requires: /usr/bin/env
-Requires: qore-module-api-%{module-api}
+Requires: qore-module-api-%{module_api}
 BuildRequires: gcc-c++
 BuildRequires: qore-devel
 %if 0%{?suse_version}
@@ -97,7 +101,6 @@ c64=--enable-64bit
 %{__make}
 
 %install
-rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%{module_dir}
 mkdir -p $RPM_BUILD_ROOT/usr/share/doc/qore-opengl-module
 make install DESTDIR=$RPM_BUILD_ROOT
