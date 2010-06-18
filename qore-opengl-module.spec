@@ -75,9 +75,16 @@ BuildRequires: qore-devel
 Requires: Mesa
 BuildRequires: Mesa-devel
 %else
-Requires: mesa-libGL
+%if 0%{?mdkversion}
+%ifarch x86_64 ppc64 x390x
+BuildRequires: lib64mesagl1-devel
+%else
+BuildRequires: libmesagl1-devel
+%endif
+%else
 BuildRequires: mesa-libGL-devel
 BuildRequires: mesa-libGLU-devel
+%else
 %endif
 BuildRequires: qore
 
