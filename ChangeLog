@@ -1,3 +1,34 @@
+2010-06-15 18:49  david_nichols
+
+	* docs/opengl-module-doc.html: updated tikiwiki and added updated
+	  color scheme
+
+2010-05-12 11:49  david_nichols
+
+	* configure.ac: solaris and sun studio compile and warning
+	  fixes/enhancements
+
+2009-12-09 12:58  david_nichols
+
+	* configure.ac: fixed all modules to use decimal comparisons with
+	  the qore version string instead of octal so that they will still
+	  compile with qore v0.8.0 and up...
+
+2009-11-22 06:03  david_nichols
+
+	* configure.ac: updated configure to assume 64-bit build if
+	  host_cpu = "amd64"
+
+2009-10-30 08:22  david_nichols
+
+	* configure.ac: updated all module configure scripts to use gnutar
+	  on darwin to avoid picking up OSX resource files in source
+	  releases
+
+2009-10-05 10:40  david_nichols
+
+	* ChangeLog, RELEASE-NOTES: updated docs
+
 2009-09-21 10:54  david_nichols
 
 	* configure.ac, src/opengl-ext-constants.cc, src/opengl-ext.cc,
