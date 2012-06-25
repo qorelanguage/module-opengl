@@ -271,8 +271,7 @@ check_opengl_include() {
     fi
 }
 
-check_opengl_lib()
-{
+check_opengl_lib() {
     if test -f "$1/libGL.${SHLIB_SUFFIX}" -a "$1/libGLU.${SHLIB_SUFFIX}"; then
        found_opengl_libs=$lib
     elif test "$2" = "err"; then
@@ -280,8 +279,7 @@ check_opengl_lib()
     fi
 }
 
-check_opengl_version()
-{
+check_opengl_version() {
     # check opengl version
     opengl_ver=`grep define.*GL_VERSION_1_3.*1 $with_opengl_includes/*.h`
     if test -z "$opengl_ver"; then
@@ -289,17 +287,21 @@ check_opengl_version()
     fi
 }
 
-check_opengl()
-{
+check_opengl() {
+    a="$1"
+    if test \( "$a" = "/" -o -z "$a" \) -a -h "$a/lib${LIBSUFFIX}"; then
+        a=/usr
+    fi
+
     if test -z "$with_opengl_includes"; then
-        inc="$1/include"
-        if test "$1" = "/"; then
+        inc="$a/include"
+        if test "$a" = "/"; then
        	    inc=/usr/include
         fi
 	check_opengl_include $inc
 
 	if test -z "$found_opengl_includes"; then
-	    #echo DBG: opengl $1 $inc includes not found
+	    #echo DBG: opengl $a $inc includes not found
        	    return
     	fi
 	with_opengl_includes="$found_opengl_includes"
@@ -307,11 +309,11 @@ check_opengl()
     fi
 
     if test -z "$with_opengl_libs"; then
-        lib="$1/lib${LIBSUFFIX}"
+        lib="$a/lib${LIBSUFFIX}"
 
 	check_opengl_lib $lib
     	if test -z "$found_opengl_libs"; then
-       	    #echo DBG: opengl $1 $lib libs not found
+       	    #echo DBG: opengl $a $lib libs not found
        	    unset with_opengl_includes
        	    return
     	fi
@@ -418,7 +420,11 @@ set_qore_cppflags() {
 }
 
 find_qore() {
-    lib=$1/lib${LIBSUFFIX}
+    a="$1"
+    if test \( "$a" = "/" -o -z "$a" \) -a -h "$a/lib${LIBSUFFIX}"; then
+        a=/usr
+    fi
+    lib=$a/lib${LIBSUFFIX}
 
     # if we only want the static qore libraries
     if test -n "$qore_static"; then
@@ -447,10 +453,10 @@ find_qore() {
 
     AC_MSG_CHECKING([for qore include files])
     # try to find include files
-    if test "$1" = "/"; then
+    if test "$a" = "/"; then
         inc=/usr/include
     else
-        inc=$1/include
+        inc=$a/include
     fi
     if test -f "$inc/qore/Qore.h"; then
         AC_MSG_RESULT([found: $inc])
@@ -669,8 +675,7 @@ else
    printf " (32-bit)\n"
 fi
 
-show_library_feature()
-{
+show_library_feature() {
    printf "%-24s: " "$1"
    if test "$2" = "yes"; then
       printf "%-8s" yes
