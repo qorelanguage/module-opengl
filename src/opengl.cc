@@ -22,7 +22,11 @@
 
 #include "qore-opengl.h"
 
+#if defined(__linux__) || defined(__sgi) || defined(__QNX__)
 #include <alloca.h>
+#else
+#include <stdlib.h>
+#endif
 
 static QoreStringNode *opengl_module_init();
 static void opengl_module_ns_init(QoreNamespace *rns, QoreNamespace *qns);
