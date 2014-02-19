@@ -22,7 +22,7 @@
 
 #include "qore-opengl.h"
 
-#if defined(__linux__) || defined(__sgi) || defined(__QNX__)
+#if defined(__linux__) || defined(__sgi) || defined(__QNX__) || defined(__sun) || defined(__osf__) || defined(__hpux) || defined(_UNIXWARE7)
 #include <alloca.h>
 #else
 #include <stdlib.h>
