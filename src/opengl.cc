@@ -22,10 +22,8 @@
 
 #include "qore-opengl.h"
 
-#if defined(__linux__) || defined(__sgi) || defined(__QNX__) || defined(__sun) || defined(__osf__) || defined(__hpux) || defined(_UNIXWARE7)
+#ifdef HAVE_ALLOCA_H
 #include <alloca.h>
-#else
-#include <stdlib.h>
 #endif
 
 static QoreStringNode *opengl_module_init();
