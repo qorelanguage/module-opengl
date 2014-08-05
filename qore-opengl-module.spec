@@ -51,7 +51,7 @@ Requires: Mesa
 BuildRequires: Mesa-devel
 %else
 %if 0%{?mdkversion}
-%ifarch x86_64 ppc64 x390x
+%ifarch x86_64 ppc64 s390x
 BuildRequires: lib64mesagl1-devel
 BuildRequires: lib64mesaglu1-devel
 %else
@@ -76,10 +76,7 @@ functionality.
 
 %prep
 %setup -q
-%ifarch x86_64 ppc64 x390x
-c64=--enable-64bit
-%endif
-./configure RPM_OPT_FLAGS="$RPM_OPT_FLAGS" --prefix=/usr --disable-debug $c64
+./configure RPM_OPT_FLAGS="$RPM_OPT_FLAGS" --prefix=/usr --disable-debug
 
 %build
 %{__make}
